@@ -295,7 +295,7 @@ spec:
             topologyKey: kubernetes.io/hostname
       serviceAccountName: nginx-ingress-serviceaccount
       nodeSelector:
-        kubernetes.io/os: linux
+        beta.kubernetes.io/os: linux
       containers:
         - name: nginx-ingress-controller
           image: {{ nginx_ingress_image }}
@@ -313,8 +313,8 @@ spec:
                 - ALL
               add:
                 - NET_BIND_SERVICE
-            # www-data -> 33
-            runAsUser: 33
+            # www-data -> 101
+            runAsUser: 101
           env:
             - name: POD_NAME
               valueFrom:
