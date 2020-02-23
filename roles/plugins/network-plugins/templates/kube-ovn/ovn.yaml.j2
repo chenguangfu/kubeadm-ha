@@ -25,6 +25,15 @@ metadata:
     rbac.authorization.k8s.io/system-only: "true"
   name: system:ovn
 rules:
+  # Cluster role which grants access to the privileged pod security policy
+  - apiGroups:
+    - extensions
+    resourceNames:
+    - privileged
+    resources:
+    - podsecuritypolicies
+    verbs:
+    - use
   - apiGroups:
       - "kubeovn.io"
     resources:

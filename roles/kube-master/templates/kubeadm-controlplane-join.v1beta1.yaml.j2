@@ -61,7 +61,7 @@ apiServer:
     audit-log-maxsize: "{{ audit_log_maxsize }}"
     audit-log-truncate-enabled: "true"
     audit-policy-file: {{ audit_policy_file }}
-    enable-admission-plugins: ServiceAccount,NodeRestriction,DefaultStorageClass
+    enable-admission-plugins: AlwaysPullImages,ServiceAccount,PodSecurityPolicy,NodeRestriction,DefaultStorageClass
     encryption-provider-config: /etc/kubernetes/pki/secrets-encryption.yaml
     kubelet-certificate-authority: /etc/kubernetes/pki/ca.crt
     kubelet-client-certificate: /etc/kubernetes/pki/apiserver-kubelet-client.crt
